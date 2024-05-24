@@ -1,0 +1,48 @@
+# Rime schema
+# encoding utf-8
+#
+schema:
+  schema_id: kaoshrimp
+  name: 遇顏柚子
+  version: '2.0'
+  description: 顏文字輸入法，讓你不用顏文字庫也能打出顏文字！ (靈感源自於嘸蝦米輸入法
+  author:
+    - 夏羽綾理
+
+switch:
+  - name: ascii_mode
+    reset: 0
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+
+
+
+speller:
+  algebra:
+    - "xlit|abcdefghijklmnopqrstuvwxyz\\/*;)(~_=?@#^><|abcdefghijklmnopqrstuvwxyz\\/*;)(|~_=?@#^><,-!:"
+  alphabet: "abcdefghijklmnopqrstuvwxyz\\/*;)(~_=?@#^><,-!:"
+  initials: "abcdefghijklmnopqrstuvwxyz\\/*;)(~_=?@#^><,-!:"
+
+
+translator:
+  dictionary: kaoshrimp
+  preedit_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz\\/*;)(~_=?@#^><|ABCDEFGHIJKLMNOPQRSTUVWXYZ|\\/*;)(~_=?@#^><,-!:"
